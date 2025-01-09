@@ -103,3 +103,16 @@ function showColor() {
 }
 
 userSelect.addEventListener("input", showColor, false);
+
+//Adding open close functionality to save palette button.
+const dialog = document.querySelector("dialog");
+const showButton = document.querySelector("dialog + button");
+const closeButton = document.querySelector("dialog button");
+
+showButton.addEventListener("click", () => {
+    dialog.showModal();
+});
+
+    closeButton.addEventListener("click", () => {
+        dialog.close()
+    });
