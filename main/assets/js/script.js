@@ -1,5 +1,6 @@
 const userSelect = document.querySelector('#user-select');
 
+
 function CalculateTriadic() {
     /*
     Color 1: #RRBBGG (input)
@@ -19,8 +20,6 @@ function CalculateTriadic() {
     paletteListTriade.push(hexString);
     paletteListTriade.push(grbString);
     paletteListTriade.push(bgrString);
-    // TEMP:
-    console.log(paletteListTriade);
 
     return paletteListTriade;
 }
@@ -45,8 +44,6 @@ function CalculateComplimentary() {
 
     paletteListCompliment.push(hexString);
     paletteListCompliment.push(complimentString);
-    // TEMP:
-    console.log(paletteListCompliment);
 
     return paletteListCompliment;
 }
@@ -89,17 +86,50 @@ function CalculateMonochromatic() {
     paletteListMonochrome.push(hexString);
     paletteListMonochrome.push(hexChange1);
     paletteListMonochrome.push(hexChange2);
-    // TEMP:
-    console.log(paletteListMonochrome);
 
     return paletteListMonochrome;
 }
 
+function RenderColors() {
+    const triadic = CalculateTriadic();
+    const complimentary = CalculateComplimentary();
+    const monochromatic = CalculateMonochromatic();
+
+    // set all inital colors
+    const initialColors = document.querySelectorAll('.initial-color');
+
+    initialColors.forEach((element) => {
+        element.setAttribute('style', `background-color: ${userSelect.value}`);
+        element.textContent = userSelect.value;
+    });
+
+    // set compliment
+    const comp1 = document.querySelector("#compliment1");
+    comp1.setAttribute('style', `background-color: ${complimentary[1]}`);
+    comp1.textContent = complimentary[1];
+
+    // set triadic
+    const triadic1 = document.querySelector("#triadic1");
+    triadic1.setAttribute('style', `background-color: ${triadic[1]}`);
+    triadic1.textContent = triadic[1];
+
+    const triadic2 = document.querySelector("#triadic2");
+    triadic2.setAttribute('style', `background-color: ${triadic[2]}`);
+    triadic2.textContent = triadic[2];
+
+    // set monochrome
+    const monochrome1 = document.querySelector("#monochrome1");
+    monochrome1.setAttribute('style', `background-color: ${monochromatic[1]}`);
+    monochrome1.textContent = monochromatic[1];
+
+    const monochrome2 = document.querySelector("#monochrome2");
+    monochrome2.setAttribute('style', `background-color: ${monochromatic[2]}`);
+    monochrome2.textContent = monochromatic[2];
+}
+
 function showColor() {
     console.log(userSelect.value);
-    CalculateTriadic();
-    CalculateComplimentary();
-    CalculateMonochromatic();
+    RenderColors();
 }
 
 userSelect.addEventListener("input", showColor, false);
