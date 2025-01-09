@@ -1,4 +1,8 @@
 const userSelect = document.querySelector('#user-select');
+const complimentPalette = document.querySelector('#compliment');
+const monochromePalette = document.querySelector('#monochrome');
+const triadicPalette = document.querySelector('#triadic');
+
 
 function CalculateTriadic() {
     /*
