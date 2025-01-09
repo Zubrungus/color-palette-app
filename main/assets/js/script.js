@@ -101,8 +101,8 @@ function CalculateMonochromatic() {
 
 function showColor() {
     console.log(userSelect.value);
-    //CalculateTriadic();
-    //CalculateComplimentary();
+    CalculateTriadic();
+    CalculateComplimentary();
     CalculateMonochromatic();
 }
 

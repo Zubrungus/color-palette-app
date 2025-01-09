@@ -1,3 +1,55 @@
 h1{
     text-align: center;
 }
+
+#bulk{
+    display: flex;
+    flex-direction: row;
+}
+
+#color-selector{
+    display: flex;
+    width: 30%;
+    height: 500px;
+    outline: solid;
+    margin: 2%;
+}
+
+#all-palettes{
+    display: flex;
+    width: 60%;
+    flex-direction: column;
+    margin: 2%;
+}
+
+.palette{
+    display: flex;
+    flex-direction: row;
+    outline: solid;
+    height: 110px;
+    width: 90%;
+    margin-top: 0%;
+    margin-left: 5%;
+    margin-bottom: 3%;
+}
+
+.initial-color{
+    flex-grow: 1;
+    display: flex;
+    margin-left: 0%;
+    height: 100%;
+    width: 20%;
+    outline: solid;
+}
+
+.save-button{
+    width: 15%;
+    height: 100%;
+}
+
+.individual-color{
+    flex-grow: 1;
+    height: 100%;
+    outline: solid;
+    width: 20%;
+}
