@@ -32,7 +32,7 @@ function CalculateComplimentary() {
     */
     const hexString = userSelect.value;
     const hexF = parseInt("0xF");
-    let complimentString = "#"
+    let complimentString = "#";
     const paletteListCompliment = [];
 
     const allHexInput = hexString.substring(1);
@@ -51,10 +51,53 @@ function CalculateComplimentary() {
     return paletteListCompliment;
 }
 
+function CalculateMonochromatic() {
+    /*
+    Change HSL 'lightness' value of the starting color to get
+    the other monochromatic colors.
+    */
+    const hexString = userSelect.value;
+    const paletteListMonochrome = [];
+    lChange = 20; // play with this? represents % of shift.
+
+    const hslIn = HexToHSL(hexString);
+    // console.log(hslIn); // matches picker, so the code I found checks out!
+
+    let hslChange1 = JSON.parse(JSON.stringify(hslIn));
+    let hslChange2 = JSON.parse(JSON.stringify(hslIn));
+
+    if ((hslIn.l - lChange) < 0) {
+        // create two lighter colors
+        hslChange1.l = hslIn.l + lChange;
+        hslChange2.l = hslIn.l + (lChange * 2);
+    }
+    else if ((hslIn.l + lChange) > 100) {
+        // create two darker colors
+        hslChange1.l = hslIn.l - lChange;
+        hslChange2.l = hslIn.l - (lChange * 2);
+    }
+    else {
+        // create a lighter and a darker color
+        hslChange1.l = hslIn.l + lChange;
+        hslChange2.l = hslIn.l - lChange;
+    }
+
+    // convert changes back to hex
+    const hexChange1 = HSLToHex(hslChange1);
+    const hexChange2 = HSLToHex(hslChange2);
+
+    paletteListMonochrome.push(hexString);
+    paletteListMonochrome.push(hexChange1);
+    paletteListMonochrome.push(hexChange2);
+
+    console.log(paletteListMonochrome);
+}
+
 function showColor() {
     console.log(userSelect.value);
-    CalculateTriadic();
-    CalculateComplimentary();
+    //CalculateTriadic();
+    //CalculateComplimentary();
+    CalculateMonochromatic();
 }
 
 userSelect.addEventListener("input", showColor, false);
