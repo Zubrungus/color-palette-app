@@ -97,9 +97,22 @@ function CalculateMonochromatic() {
 
 function showColor() {
     console.log(userSelect.value);
-    //CalculateTriadic();
-    //CalculateComplimentary();
+    CalculateTriadic();
+    CalculateComplimentary();
     CalculateMonochromatic();
 }
 
 userSelect.addEventListener("input", showColor, false);
+
+//Adding open close functionality to save palette button.
+const dialog = document.querySelector("dialog");
+const showButton = document.querySelector("dialog + button");
+const closeButton = document.querySelector("dialog button");
+
+showButton.addEventListener("click", () => {
+    dialog.showModal();
+});
+
+    closeButton.addEventListener("click", () => {
+        dialog.close()
+    });
