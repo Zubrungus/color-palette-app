@@ -1,6 +1,6 @@
 /*
-logic from: https://www.jameslmilner.com/posts/converting-rgb-hex-hsl-colors/
-removed 
+Logic from: https://www.jameslmilner.com/posts/converting-rgb-hex-hsl-colors/
+Converted slightly for useage outside of TypeScript.
 */
 
 function HexToHSL(hex) {

@@ -54,7 +54,7 @@ function CalculateComplimentary() {
 function CalculateMonochromatic() {
     /*
     Change HSL 'lightness' value of the starting color to get
-    the other monochromatic colors.
+    the 2 other monochromatic colors.
     */
     const hexString = userSelect.value;
     const paletteListMonochrome = [];
@@ -89,8 +89,10 @@ function CalculateMonochromatic() {
     paletteListMonochrome.push(hexString);
     paletteListMonochrome.push(hexChange1);
     paletteListMonochrome.push(hexChange2);
-
+    // TEMP:
     console.log(paletteListMonochrome);
+
+    return paletteListMonochrome;
 }
 
 function showColor() {
