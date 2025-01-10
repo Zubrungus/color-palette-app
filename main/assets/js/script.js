@@ -1,13 +1,13 @@
 const userSelect = document.querySelector('#user-select');
 
 
-function CalculateTriadic() {
+function CalculateTriadic(hex) {
     /*
     Color 1: #RRBBGG (input)
     Color 2: #GGRRBB
     Color 3: #BBGGRR
     */
-    const hexString = userSelect.value;
+    const hexString = hex;
     const paletteListTriade = [];
 
     const rSection = hexString.substring(1, 3);
@@ -24,12 +24,12 @@ function CalculateTriadic() {
     return paletteListTriade;
 }
 
-function CalculateComplimentary() {
+function CalculateComplimentary(hex) {
     /*
     Color 1: #RRGGBB (input)
     Color 2: #(F-R)(F-R)(F-G)(F-G)(F-B)(F-B) using hex math
     */
-    const hexString = userSelect.value;
+    const hexString = hex;
     const hexF = parseInt("0xF");
     let complimentString = "#";
     const paletteListCompliment = [];
@@ -48,12 +48,12 @@ function CalculateComplimentary() {
     return paletteListCompliment;
 }
 
-function CalculateMonochromatic() {
+function CalculateMonochromatic(hex) {
     /*
     Change HSL 'lightness' value of the starting color to get
     the 2 other monochromatic colors.
     */
-    const hexString = userSelect.value;
+    const hexString = hex;
     const paletteListMonochrome = [];
     lChange = 20; // play with this? represents % of shift.
 
@@ -97,22 +97,22 @@ function setColor(idName, hexColor) {
     colorp.textContent = hexColor;
 }
 
-function RenderColors() {
-    const triadic = CalculateTriadic();
-    const complimentary = CalculateComplimentary();
-    const monochromatic = CalculateMonochromatic();
+function RenderColors(hexIn) {
+    const triadic = CalculateTriadic(hexIn);
+    const complimentary = CalculateComplimentary(hexIn);
+    const monochromatic = CalculateMonochromatic(hexIn);
 
     // set all inital colors
     const initialColors = document.querySelectorAll('.initial-color');
 
     initialColors.forEach((element) => {
-        element.setAttribute('style', `background-color: ${userSelect.value}`);
+        element.setAttribute('style', `background-color: ${hexIn}`);
     });
 
     const initialColorsp = document.querySelectorAll('.initial-color p');
     
     initialColorsp.forEach((pelement) => {
-        pelement.textContent = userSelect.value;
+        pelement.textContent = hexIn;
     });
 
     // set compliment
@@ -128,8 +128,8 @@ function RenderColors() {
 }
 
 function showColor() {
-    console.log(userSelect.value);
-    RenderColors();
+    RenderColors(userSelect.value);
+    StoreLastColor(userSelect.value);
 }
 
 userSelect.addEventListener("input", showColor, false);
@@ -145,4 +145,4 @@ showButton.addEventListener("click", () => {
 
     closeButton.addEventListener("click", () => {
         dialog.close()
-    });
+    });;
