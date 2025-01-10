@@ -39,7 +39,11 @@ h1{
     margin-bottom: 7%;
 }
 
-.initial-color:nth-child(2), .individual-color p{
+.palette p{
+    background-color: white;
+}
+
+.initial-color:nth-child(2){
     margin: 10px;
 }
 
