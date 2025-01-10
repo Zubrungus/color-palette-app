@@ -1,0 +1,85 @@
+h1{
+    text-align: center;
+}
+
+#bulk{
+    display: flex;
+    flex-direction: row;
+}
+
+#color-selector{
+    display: flex;
+    width: 30%;
+    height: 500px;
+    outline: solid;
+    margin: 2%;
+}
+
+#all-palettes{
+    display: flex;
+    width: 60%;
+    flex-direction: column;
+    margin: 2%;
+    
+}
+
+.initial-color, .save-button, .individual-color{
+    height: 100%;
+}
+
+.palette{
+    display: flex;
+    flex-direction: row;
+    outline: solid;
+    height: 110px;
+    width: 100%;
+    margin-top: 0%;
+    margin-bottom: 7%;
+}
+
+.initial-color:nth-child(2), .individual-color p{
+    margin: 10px;
+}
+
+.initial-color{
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    margin-left: 0%;
+    width: 20%;
+    outline: solid;
+}
+
+.save-button{
+    width: 15%;
+}
+
+.individual-color{
+    flex-grow: 1;
+    outline: solid;
+    width: 20%;
+}
+
+.palette-name{
+    position: relative;
+    padding: 0;
+    margin: 0;
+    top: -5px;
+    left: 0px;
+    outline: solid;
+    height: 25px;
+    width: 150px;
+}
+
+@media screen and (max-width: 992px) {
+    #bulk{
+        flex-direction: column;
+    }
+    #color-selector, #all-palettes{
+        width: 90%;
+        margin: 5%;
+    }
+    .palette{
+        margin-bottom: 10%;
+    }
+  }
