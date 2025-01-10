@@ -1,13 +1,13 @@
 const userSelect = document.querySelector('#user-select');
 
 
-function CalculateTriadic() {
+function CalculateTriadic(hex) {
     /*
     Color 1: #RRBBGG (input)
     Color 2: #GGRRBB
     Color 3: #BBGGRR
     */
-    const hexString = userSelect.value;
+    const hexString = hex;
     const paletteListTriade = [];
 
     const rSection = hexString.substring(1, 3);
@@ -24,12 +24,12 @@ function CalculateTriadic() {
     return paletteListTriade;
 }
 
-function CalculateComplimentary() {
+function CalculateComplimentary(hex) {
     /*
     Color 1: #RRGGBB (input)
     Color 2: #(F-R)(F-R)(F-G)(F-G)(F-B)(F-B) using hex math
     */
-    const hexString = userSelect.value;
+    const hexString = hex;
     const hexF = parseInt("0xF");
     let complimentString = "#";
     const paletteListCompliment = [];
@@ -48,12 +48,12 @@ function CalculateComplimentary() {
     return paletteListCompliment;
 }
 
-function CalculateMonochromatic() {
+function CalculateMonochromatic(hex) {
     /*
     Change HSL 'lightness' value of the starting color to get
     the 2 other monochromatic colors.
     */
-    const hexString = userSelect.value;
+    const hexString = hex;
     const paletteListMonochrome = [];
     lChange = 20; // play with this? represents % of shift.
 
@@ -90,46 +90,46 @@ function CalculateMonochromatic() {
     return paletteListMonochrome;
 }
 
-function RenderColors() {
-    const triadic = CalculateTriadic();
-    const complimentary = CalculateComplimentary();
-    const monochromatic = CalculateMonochromatic();
+function setColor(idName, hexColor) {
+    const colordiv = document.querySelector(`#${idName}`);
+    colordiv.setAttribute('style', `background-color: ${hexColor}`);
+    const colorp = document.querySelector(`#${idName} p`);
+    colorp.textContent = hexColor;
+}
+
+function RenderColors(hexIn) {
+    const triadic = CalculateTriadic(hexIn);
+    const complimentary = CalculateComplimentary(hexIn);
+    const monochromatic = CalculateMonochromatic(hexIn);
 
     // set all inital colors
     const initialColors = document.querySelectorAll('.initial-color');
 
     initialColors.forEach((element) => {
-        element.setAttribute('style', `background-color: ${userSelect.value}`);
-        element.textContent = userSelect.value;
+        element.setAttribute('style', `background-color: ${hexIn}`);
+    });
+
+    const initialColorsp = document.querySelectorAll('.initial-color p');
+    
+    initialColorsp.forEach((pelement) => {
+        pelement.textContent = hexIn;
     });
 
     // set compliment
-    const comp1 = document.querySelector("#compliment1");
-    comp1.setAttribute('style', `background-color: ${complimentary[1]}`);
-    comp1.textContent = complimentary[1];
+    setColor("compliment1", complimentary[1]);
 
     // set triadic
-    const triadic1 = document.querySelector("#triadic1");
-    triadic1.setAttribute('style', `background-color: ${triadic[1]}`);
-    triadic1.textContent = triadic[1];
-
-    const triadic2 = document.querySelector("#triadic2");
-    triadic2.setAttribute('style', `background-color: ${triadic[2]}`);
-    triadic2.textContent = triadic[2];
+    setColor("triadic1", triadic[1]);
+    setColor("triadic2", triadic[2]);
 
     // set monochrome
-    const monochrome1 = document.querySelector("#monochrome1");
-    monochrome1.setAttribute('style', `background-color: ${monochromatic[1]}`);
-    monochrome1.textContent = monochromatic[1];
-
-    const monochrome2 = document.querySelector("#monochrome2");
-    monochrome2.setAttribute('style', `background-color: ${monochromatic[2]}`);
-    monochrome2.textContent = monochromatic[2];
+    setColor("monochrome1", monochromatic[1]);
+    setColor("monochrome2", monochromatic[2]);
 }
 
 function showColor() {
-    console.log(userSelect.value);
-    RenderColors();
+    RenderColors(userSelect.value);
+    StoreLastColor(userSelect.value);
 }
 
 userSelect.addEventListener("input", showColor, false);
@@ -145,4 +145,4 @@ showButton.addEventListener("click", () => {
 
     closeButton.addEventListener("click", () => {
         dialog.close()
-    });
+    });;
