@@ -93,12 +93,22 @@ h1{
     position: absolute;
 }
 
-#color-slider{
+#slider-background{
     position: absolute;
     left: 325px;
     background: linear-gradient(to bottom,  #ff0000 0%,#ffff00 17%,#00ff00 33%,#00ffff 50%,#0000ff 66%,#ff00ff 83%,#ff0000 100%);
     width: 20px;
     height:300px;
+}
+
+#slider{
+    position: absolute;
+    top: 0px;
+    left: 325px;
+    width: 20px;
+    height: 3px;
+    background-color: black;
+    z-index: 1;
 }
 
 .gradient1{

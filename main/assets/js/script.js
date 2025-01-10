@@ -146,3 +146,20 @@ showButton.addEventListener("click", () => {
     closeButton.addEventListener("click", () => {
         dialog.close()
     });
+
+//Code for custom color picker
+const sliderBackground = document.querySelector("#slider-background");
+
+function updateSlider(m){
+    const slider = document.querySelector("#slider");
+    const sliderBackgroundRect = sliderBackground.getBoundingClientRect();
+    const mousePosInSlider = m.clientY - sliderBackgroundRect.y;
+
+    slider.style.top = mousePosInSlider + "px";
+    
+    console.log(sliderBackgroundRect.y);
+    console.log(m.clientY);
+    console.log(mousePosInSlider);
+}
+
+sliderBackground.addEventListener("click", updateSlider);
