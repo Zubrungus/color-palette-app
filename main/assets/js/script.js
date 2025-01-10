@@ -90,6 +90,13 @@ function CalculateMonochromatic() {
     return paletteListMonochrome;
 }
 
+function setColor(idName, hexColor) {
+    const colordiv = document.querySelector(`#${idName}`);
+    colordiv.setAttribute('style', `background-color: ${hexColor}`);
+    const colorp = document.querySelector(`#${idName} p`);
+    colorp.textContent = hexColor;
+}
+
 function RenderColors() {
     const triadic = CalculateTriadic();
     const complimentary = CalculateComplimentary();
@@ -100,31 +107,24 @@ function RenderColors() {
 
     initialColors.forEach((element) => {
         element.setAttribute('style', `background-color: ${userSelect.value}`);
-        element.textContent = userSelect.value;
+    });
+
+    const initialColorsp = document.querySelectorAll('.initial-color p');
+    
+    initialColorsp.forEach((pelement) => {
+        pelement.textContent = userSelect.value;
     });
 
     // set compliment
-    const comp1 = document.querySelector("#compliment1");
-    comp1.setAttribute('style', `background-color: ${complimentary[1]}`);
-    comp1.textContent = complimentary[1];
+    setColor("compliment1", complimentary[1]);
 
     // set triadic
-    const triadic1 = document.querySelector("#triadic1");
-    triadic1.setAttribute('style', `background-color: ${triadic[1]}`);
-    triadic1.textContent = triadic[1];
-
-    const triadic2 = document.querySelector("#triadic2");
-    triadic2.setAttribute('style', `background-color: ${triadic[2]}`);
-    triadic2.textContent = triadic[2];
+    setColor("triadic1", triadic[1]);
+    setColor("triadic2", triadic[2]);
 
     // set monochrome
-    const monochrome1 = document.querySelector("#monochrome1");
-    monochrome1.setAttribute('style', `background-color: ${monochromatic[1]}`);
-    monochrome1.textContent = monochromatic[1];
-
-    const monochrome2 = document.querySelector("#monochrome2");
-    monochrome2.setAttribute('style', `background-color: ${monochromatic[2]}`);
-    monochrome2.textContent = monochromatic[2];
+    setColor("monochrome1", monochromatic[1]);
+    setColor("monochrome2", monochromatic[2]);
 }
 
 function showColor() {
