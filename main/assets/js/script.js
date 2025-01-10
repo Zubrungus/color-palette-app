@@ -135,14 +135,39 @@ function showColor() {
 userSelect.addEventListener("input", showColor, false);
 
 //Adding open close functionality to save palette button.
-const dialog = document.querySelector("dialog");
-const showButton = document.querySelector("dialog + button");
-const closeButton = document.querySelector("dialog button");
+// const dialog = document.querySelector("dialog");
+// const showButton = document.querySelector("dialog + button");
+// const closeButton = document.querySelector("dialog button");
 
-showButton.addEventListener("click", () => {
-    dialog.showModal();
+// showButton.addEventListener("click", () => {
+//     dialog.showModal();
+// });
+
+//     closeButton.addEventListener("click", () => {
+//         dialog.close()
+//     });
+
+// Add Logic to save color palette to modal
+
+document.querySelectorAll('.save-button').forEach(button => {button.addEventListener('click', function() {
+    //Get parent palette div
+    const palette =this.palette;
+    const paletteName = palette.id;
+    const initialColor = palette.querySelector('.initial-color').textContent;
+    const individualColors = Array.from(palette.querySelectorAll('.initial-color'))
+    .map(colorDiv => colorDiv.textContent)
+    .join(',');
+
+    document.getElementById('modal-palette-name').textContent = `Palette Name: ${paletteName}`;
+    document.getElementById('modal-initial-color').textContent = `Initial Color: ${initialColor}`;
+    document.getElementById('modal-individual-colors').textContent = `Individual Colors ${individualColors}`
+
+    document.getElementById('saved-color-palette').style.display = 'block';
+
+
+    });
 });
 
-    closeButton.addEventListener("click", () => {
-        dialog.close()
-    });
+document.querySelector('.close-button').addEventListener('click', function() {
+    document.getElementById('saved-color-palette').style.display = 'none';
+});
