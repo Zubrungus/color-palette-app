@@ -19,11 +19,24 @@ function SaveNewPalette(palette) {
     localStorage.setItem('palettes', JSON.stringify(allPalettes));
 }
 
+function StoreLastColor(hex) {
+    localStorage.setItem('lastColor', hex);
+}
+
+function InitializeColors() {
+    const lastColor = localStorage.getItem('lastColor');
+
+    if (lastColor !== null || lastColor !== "") {
+        RenderColors(lastColor);
+        userSelect.value = lastColor;
+    }
+}
+
 // event listeners
 complimentSave.addEventListener('click', function (event) {
     const palette = {
         name: "Complimentary",
-        colors: CalculateComplimentary()
+        colors: CalculateComplimentary(userSelect.value)
     }
 
     SaveNewPalette(palette);
@@ -32,7 +45,7 @@ complimentSave.addEventListener('click', function (event) {
 triadicSave.addEventListener('click', function (event) {
     const palette = {
         name: "Triadic",
-        colors: CalculateTriadic()
+        colors: CalculateTriadic(userSelect.value)
     }
 
     SaveNewPalette(palette);
@@ -41,8 +54,10 @@ triadicSave.addEventListener('click', function (event) {
 monochromeSave.addEventListener('click', function (event) {
     const palette = {
         name: "Monochromatic",
-        colors: CalculateMonochromatic()
+        colors: CalculateMonochromatic(userSelect.value)
     }
 
     SaveNewPalette(palette);
 });
+
+InitializeColors()
