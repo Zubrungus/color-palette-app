@@ -149,17 +149,84 @@ showButton.addEventListener("click", () => {
 
 //Code for custom color picker
 const sliderBackground = document.querySelector("#slider-background");
+const slider = document.querySelector("#slider");
+const baseColor = document.querySelector("#base-color");
+let mouseDown = false;
 
-function updateSlider(m){
-    const slider = document.querySelector("#slider");
-    const sliderBackgroundRect = sliderBackground.getBoundingClientRect();
-    const mousePosInSlider = m.clientY - sliderBackgroundRect.y;
+function updateSlider(mouse){
 
-    slider.style.top = mousePosInSlider + "px";
-    
-    console.log(sliderBackgroundRect.y);
-    console.log(m.clientY);
-    console.log(mousePosInSlider);
-}
+    if(mouseDown){
+        const sliderBackgroundRect = sliderBackground.getBoundingClientRect();
+        let mousePosInSlider = mouse.clientY - sliderBackgroundRect.y;
+        let red = 0;
+        let green = 0;
+        let blue = 0;
 
-sliderBackground.addEventListener("click", updateSlider);
+        //Prevent slider from being set outside the range of the background, then place slider
+        if(mousePosInSlider < 0){
+            mousePosInSlider = 0;
+        } else if(mousePosInSlider > 300){
+            mousePosInSlider = 300;
+        }
+        slider.style.top = mousePosInSlider + "px";
+
+        //Logic to discern what color the slider is over
+        let sliderPercent = mousePosInSlider / 300;
+        if(sliderPercent < 0.17){
+            red = 255;
+            green = Math.round(255 * sliderPercent / (17 / 100));
+        }else if(sliderPercent < 0.33){
+            red = Math.round(255 * (1 - (sliderPercent - 0.17) / (16 / 100)));
+            green = 255;
+        }else if(sliderPercent < 0.50){
+            green = 255;
+            blue = Math.round(255 * (sliderPercent - 0.33) / (17 / 100));
+        } else if(sliderPercent < 0.66){
+            green = Math.round(255 * (1 - (sliderPercent - 0.50) / (16 / 100)));
+            blue = 255;
+        }else if(sliderPercent < 0.83){
+            red = Math.round(255 * (sliderPercent - 0.66) / (17 / 100));
+            blue = 255;
+        } else{
+            red = 255;
+            blue = Math.round(255 * (1 - (sliderPercent - 0.83) / (17 / 100)));
+        }
+
+        //If hex color is one character, add a 0 to the front
+        let hexRed = red.toString(16);
+        let hexGreen = green.toString(16);
+        let hexBlue = blue.toString(16);
+
+        if(hexRed.length == 1){
+            hexRed = "0" + hexRed;
+        };
+        if(hexGreen.length == 1){
+            hexGreen = "0" + hexGreen;
+        };
+        if(hexBlue.length == 1){
+            hexBlue = "0" + hexBlue;
+        };
+
+        //Apply the resulting hex color to the main color picker background
+        baseColor.style.background = `#${hexRed}${hexGreen}${hexBlue}`;
+
+    };
+};
+
+//Listening for clicks/mouse movement on the background or slider
+sliderBackground.addEventListener("mousedown", function(mouse){
+    mouseDown = true;
+    updateSlider(mouse);
+});
+
+slider.addEventListener("mousedown", function(mouse){
+    mouseDown = true;
+    updateSlider(mouse);
+});
+
+document.addEventListener("mouseup", function(){
+    mouseDown = false;
+});
+
+sliderBackground.addEventListener("mousemove", updateSlider);
+slider.addEventListener("mousemove", updateSlider);
