@@ -1,6 +1,3 @@
-//const userSelect = document.querySelector('#user-select');
-
-
 function CalculateTriadic(hex) {
     /*
     Color 1: #RRBBGG (input)
@@ -131,8 +128,6 @@ function showColor(receivedColor) {
     RenderColors(receivedColor);
     StoreLastColor(receivedColor);
 }
-
-//userSelect.addEventListener("input", showColor, false);
 
 //Adding open close functionality to save palette button.
 const dialog = document.querySelector("dialog");

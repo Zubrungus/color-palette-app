@@ -81,8 +81,8 @@ function updatePointer(mouse) {
     if (pointerMouseDown) {
         const gradientRect = twoDimensionalGradient.getBoundingClientRect();
         const baseHex = baseColor.style.background;
-        let mouseGradientX = mouse.clientX - gradientRect.x;
-        let mouseGradientY = mouse.clientY - gradientRect.y;
+        let mouseGradientX = Math.round(mouse.clientX - gradientRect.x);
+        let mouseGradientY = Math.round(mouse.clientY - gradientRect.y);
 
         //Prevent pointer from being set outside the range of the background, then place pointer
         if (mouseGradientX < 0) {
@@ -151,7 +151,7 @@ function colorInit(){
     let pointer = getPointer();
     pointerPosX = pointer.x;
     pointerPosY = pointer.y;
-    
+
     sliderEl.style.top = slider + "px";
     sliderCalc(slider);
 

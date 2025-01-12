@@ -28,14 +28,13 @@ function InitializeColors() {
 
     if (lastColor !== null || lastColor !== "") {
         RenderColors(lastColor);
-        //userSelect.value = lastColor;
     }
 }
 
 function storePointer(pointerX, pointerY){
     localStorage.setItem('pointer', JSON.stringify({
-        x: parseInt(pointerX),
-        y: parseInt(pointerY)
+        x: pointerX,
+        y: pointerY
     }));
     return;
 }

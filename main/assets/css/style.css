@@ -96,8 +96,7 @@ h1 {
     position: absolute;
     height: 3px;
     width: 3px;
-    /*background: rgba(0, 0, 0, 1);*/
-    outline: 2px solid rgba(0, 0, 0, 0.7);
+    outline: 2px solid white;
     border-radius: 3px;
     z-index: 2;
 }
