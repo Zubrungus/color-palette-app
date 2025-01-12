@@ -1,6 +1,6 @@
 
 .display-1{    
-    font-size: 55px;
+    font-size: 50px;
     font-weight: 300;
     line-height: 1.2;
     background-color: black;
@@ -17,10 +17,13 @@
 }
 
 
+
 h1{
     text-align: center;
-    color: white;
+    color: mediumseagreen;
+    font-family: monaco,Consolas,Lucida Console,monospace; 
 }
+
 
 #bulk {
     display: flex;
