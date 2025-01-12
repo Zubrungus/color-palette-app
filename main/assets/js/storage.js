@@ -3,6 +3,12 @@ const complimentSave = document.querySelector('#compliment-save');
 const triadicSave = document.querySelector("#triadic-save");
 const monochromeSave = document.querySelector("#monochrome-save");
 
+// modal elements
+const showSaved = document.querySelector("#show-saved-button");
+const closeSaved = document.querySelector("#close-saved-button");
+const savedPaletteBody = document.querySelector("#saved-palette-body");
+
+//modal
 function GetSavedPalettes() {
     let savedPalettes = JSON.parse(localStorage.getItem('palettes'));
 
@@ -52,11 +58,22 @@ function getSlider(){
     return slider;
 }
 
+function UpdateSavedModal() {
+    const savedPalettes = GetSavedPalettes();
+
+    savedPalettes.forEach(palette => {
+        let message = `${palette.name}: ` + palette.colors.join(', ');
+        const messageEl = document.createElement("p");
+        messageEl.textContent = message;
+        savedPaletteBody.appendChild(messageEl);
+    });
+}
+
 // event listeners
 complimentSave.addEventListener('click', function (event) {
     const palette = {
         name: "Complimentary",
-        colors: CalculateComplimentary(userSelect.value)
+        colors: CalculateComplimentary(hexValue)
     }
 
     SaveNewPalette(palette);
@@ -65,7 +82,7 @@ complimentSave.addEventListener('click', function (event) {
 triadicSave.addEventListener('click', function (event) {
     const palette = {
         name: "Triadic",
-        colors: CalculateTriadic(userSelect.value)
+        colors: CalculateTriadic(hexValue)
     }
 
     SaveNewPalette(palette);
@@ -74,10 +91,17 @@ triadicSave.addEventListener('click', function (event) {
 monochromeSave.addEventListener('click', function (event) {
     const palette = {
         name: "Monochromatic",
-        colors: CalculateMonochromatic(userSelect.value)
+        colors: CalculateMonochromatic(hexValue)
     }
 
     SaveNewPalette(palette);
 });
 
-InitializeColors()
+showSaved.addEventListener('click', UpdateSavedModal);
+
+closeSaved.addEventListener('click', function (event) {
+    // clear to prevent duplicates when showing the saved modal again
+    savedPaletteBody.innerHTML = '';
+});
+
+InitializeColors();
