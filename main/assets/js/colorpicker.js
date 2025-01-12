@@ -6,7 +6,7 @@ const twoDimensionalGradient = document.querySelector(".gradient2");
 const pointerEl = document.querySelector("#pointer");
 let sliderMouseDown = false;
 let pointerMouseDown = false;
-let baseRed = 0;
+let baseRed = 255;
 let baseGreen = 0;
 let baseBlue = 0;
 let pointerPosX = 0;
@@ -73,7 +73,7 @@ function sliderCalc(mousePosInSlider){
 
     //Apply the resulting hex color to the main color picker background
     baseColor.style.background = getHexString(red, green, blue);
-}
+};
 
 
 
@@ -125,7 +125,7 @@ function colorCalc(pointerX, pointerY){
 
     showColor(getHexString(calculatedRed, calculatedGreen, calculatedBlue));
     return;
-}
+};
 
 function getHexString(red, green, blue) {
     let hexRed = Math.round(red).toString(16);
@@ -144,11 +144,24 @@ function getHexString(red, green, blue) {
     };
 
     return `#${hexRed}${hexGreen}${hexBlue}`;
-}
+};
 
 function colorInit(){
     let slider = getSlider();
     let pointer = getPointer();
+
+    if(!slider){
+        slider = 0;
+    };
+
+    if(!pointer){
+        pointer = {
+            x: 0,
+            y: 0
+        }
+    };
+
+
     pointerPosX = pointer.x;
     pointerPosY = pointer.y;
 
