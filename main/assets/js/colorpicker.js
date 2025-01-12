@@ -12,6 +12,8 @@ let baseBlue = 0;
 let pointerPosX = 0;
 let pointerPosY = 0;
 
+let hexValue = "";
+
 function updateSlider(mouse) {
 
     if (sliderMouseDown) {
@@ -123,7 +125,8 @@ function colorCalc(pointerX, pointerY){
     const calculatedGreen = (baseGreen + (greenDiff * whitePercent)) * blackPercent;
     const calculatedBlue = (baseBlue + (blueDiff * whitePercent)) * blackPercent;
 
-    showColor(getHexString(calculatedRed, calculatedGreen, calculatedBlue));
+    hexValue = getHexString(calculatedRed, calculatedGreen, calculatedBlue);
+    showColor(hexValue);
     return;
 }
 
@@ -149,16 +152,18 @@ function getHexString(red, green, blue) {
 function colorInit(){
     let slider = getSlider();
     let pointer = getPointer();
-    pointerPosX = pointer.x;
-    pointerPosY = pointer.y;
 
-    sliderEl.style.top = slider + "px";
-    sliderCalc(slider);
+    if (slider !== null && pointer !== null) {
+        pointerPosX = pointer.x;
+        pointerPosY = pointer.y;
 
-    pointerEl.style.left = (pointerPosX - 1) + "px";
-    pointerEl.style.top = (pointerPosY - 1) + "px";
-    colorCalc(pointerPosX, pointerPosY);
+        sliderEl.style.top = slider + "px";
+        sliderCalc(slider);
 
+        pointerEl.style.left = (pointerPosX - 1) + "px";
+        pointerEl.style.top = (pointerPosY - 1) + "px";
+        colorCalc(pointerPosX, pointerPosY);
+    }
 };
 
 //Listening for clicks/mouse movement on the background or slider
