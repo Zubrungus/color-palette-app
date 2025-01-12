@@ -15,7 +15,7 @@ function GetSavedPalettes() {
 
 function SaveNewPalette(palette) {
     const allPalettes = GetSavedPalettes();
-    allPalettes.push(palette);    
+    allPalettes.push(palette);
     localStorage.setItem('palettes', JSON.stringify(allPalettes));
 }
 
@@ -28,8 +28,29 @@ function InitializeColors() {
 
     if (lastColor !== null || lastColor !== "") {
         RenderColors(lastColor);
-        userSelect.value = lastColor;
     }
+}
+
+function storePointer(pointerX, pointerY){
+    localStorage.setItem('pointer', JSON.stringify({
+        x: pointerX,
+        y: pointerY
+    }));
+    return;
+}
+
+function getPointer(){
+    const pointer = JSON.parse(localStorage.getItem('pointer'));
+    return pointer;
+}
+
+function storeSlider(slider){
+    localStorage.setItem('slider', parseInt(slider));
+}
+
+function getSlider(){
+    slider = localStorage.getItem('slider');
+    return slider;
 }
 
 // event listeners

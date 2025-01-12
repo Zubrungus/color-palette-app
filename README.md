@@ -27,6 +27,8 @@ No installation necessary.
 ## Contributors:
 * 'conversions.js' uses logic from James L. Milner's blog post [Converting RGB, Hex and HSL Colors with JavaScript & TypeScript](https://www.jameslmilner.com/posts/converting-rgb-hex-hsl-colors/).
 
+* 'style.css' uses linear gradients from [colorjoe](https://github.com/bebraw/colorjoe/).
+
 * Kayla Engelstad - Github: https://github.com/kengelstad16
 
 * Kira Zeiglar - Github: https://github.com/kiralee97

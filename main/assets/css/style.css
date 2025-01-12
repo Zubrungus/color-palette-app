@@ -1,33 +1,37 @@
-h1{
+h1 {
     text-align: center;
 }
 
-#bulk{
+#bulk {
     display: flex;
     flex-direction: row;
 }
 
-#color-selector{
+#color-selector {
     display: flex;
-    width: 30%;
+    flex-direction: column;
+    width: 40%;
     height: 500px;
     outline: solid;
     margin: 2%;
 }
 
-#all-palettes{
+
+#all-palettes {
     display: flex;
     width: 60%;
     flex-direction: column;
     margin: 2%;
-    
+
 }
 
-.initial-color, .save-button, .individual-color{
+.initial-color,
+.save-button,
+.individual-color {
     height: 100%;
 }
 
-.palette{
+.palette {
     display: flex;
     flex-direction: row;
     height: 110px;
@@ -36,16 +40,16 @@ h1{
     margin-bottom: 7%;
 }
 
-.palette p{
+.palette p {
     background-color: white;
     padding-left: 5px
 }
 
-.initial-color:nth-child(2){
+.initial-color:nth-child(2) {
     margin: 10px;
 }
 
-.initial-color{
+.initial-color {
     flex-grow: 1;
     display: flex;
     flex-direction: column;
@@ -54,18 +58,18 @@ h1{
     outline: solid;
 }
 
-.save-button{
+.save-button {
     width: 15%;
     margin-left: 10px;
 }
 
-.individual-color{
+.individual-color {
     flex-grow: 1;
     outline: solid;
     width: 20%;
 }
 
-.palette-name{
+.palette-name {
     position: relative;
     padding: 0;
     margin: 0;
@@ -75,15 +79,68 @@ h1{
     width: 150px;
 }
 
+#inner-color-selector {
+    position: relative;
+    left: 10px;
+    top: 30px;
+}
+
+.gradients,
+#base-color {
+    width: 300px;
+    height: 300px;
+    position: absolute;
+}
+
+#pointer {
+    position: absolute;
+    height: 3px;
+    width: 3px;
+    outline: 2px solid white;
+    border-radius: 3px;
+    z-index: 2;
+}
+
+#slider-background {
+    position: absolute;
+    left: 325px;
+    width: 30px;
+    height: 300px;
+    background: linear-gradient(to bottom, #ff0000 0%, #ffff00 17%, #00ff00 33%, #00ffff 50%, #0000ff 66%, #ff00ff 83%, #ff0000 100%);
+}
+
+#slider {
+    position: absolute;
+    top: 0px;
+    left: 325px;
+    width: 30px;
+    height: 3px;
+    background-color: black;
+    z-index: 1;
+}
+
+.gradient1 {
+    z-index: 0;
+    background: linear-gradient(to right, #FFFFFFFF 0%, #FFFFFF00 100%);
+}
+
+.gradient2 {
+    z-index: 1;
+    background: linear-gradient(to bottom, #00000000 0%, #000000FF 100%);
+}
+
 @media screen and (max-width: 992px) {
-    #bulk{
+    #bulk {
         flex-direction: column;
     }
-    #color-selector, #all-palettes{
+
+    #color-selector,
+    #all-palettes {
         width: 90%;
         margin: 5%;
     }
-    .palette{
+
+    .palette {
         margin-bottom: 10%;
     }
-  }
+}
