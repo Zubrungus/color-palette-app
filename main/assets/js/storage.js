@@ -15,7 +15,7 @@ function GetSavedPalettes() {
 
 function SaveNewPalette(palette) {
     const allPalettes = GetSavedPalettes();
-    allPalettes.push(palette);    
+    allPalettes.push(palette);
     localStorage.setItem('palettes', JSON.stringify(allPalettes));
 }
 

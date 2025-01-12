@@ -110,7 +110,7 @@ function RenderColors(hexIn) {
     });
 
     const initialColorsp = document.querySelectorAll('.initial-color p');
-    
+
     initialColorsp.forEach((pelement) => {
         pelement.textContent = hexIn;
     });
@@ -128,7 +128,6 @@ function RenderColors(hexIn) {
 }
 
 function showColor(receivedColor) {
-    console.log("showColor");
     RenderColors(receivedColor);
     StoreLastColor(receivedColor);
 }
@@ -144,9 +143,9 @@ showButton.addEventListener("click", () => {
     dialog.showModal();
 });
 
-    closeButton.addEventListener("click", () => {
-        dialog.close()
-    });
+closeButton.addEventListener("click", () => {
+    dialog.close()
+});
 
 //Code for custom color picker
 const sliderBackground = document.querySelector("#slider-background");
@@ -159,9 +158,9 @@ let baseRed = 170;
 let baseGreen = 0;
 let baseBlue = 255;
 
-function updateSlider(mouse){
+function updateSlider(mouse) {
 
-    if(mouseDown){
+    if (mouseDown) {
         const sliderBackgroundRect = sliderBackground.getBoundingClientRect();
         let mousePosInSlider = mouse.clientY - sliderBackgroundRect.y;
         let red = 0;
@@ -169,31 +168,31 @@ function updateSlider(mouse){
         let blue = 0;
 
         //Prevent slider from being set outside the range of the background, then place slider
-        if(mousePosInSlider < 0){
+        if (mousePosInSlider < 0) {
             mousePosInSlider = 0;
-        } else if(mousePosInSlider > 300){
+        } else if (mousePosInSlider > 300) {
             mousePosInSlider = 300;
         }
         slider.style.top = mousePosInSlider + "px";
 
         //Logic to discern what color the slider is over
         const sliderPercent = mousePosInSlider / 300;
-        if(sliderPercent < 0.17){
+        if (sliderPercent < 0.17) {
             red = 255;
             green = Math.round(255 * sliderPercent / (17 / 100));
-        }else if(sliderPercent < 0.33){
+        } else if (sliderPercent < 0.33) {
             red = Math.round(255 * (1 - (sliderPercent - 0.17) / (16 / 100)));
             green = 255;
-        }else if(sliderPercent < 0.50){
+        } else if (sliderPercent < 0.50) {
             green = 255;
             blue = Math.round(255 * (sliderPercent - 0.33) / (17 / 100));
-        } else if(sliderPercent < 0.66){
+        } else if (sliderPercent < 0.66) {
             green = Math.round(255 * (1 - (sliderPercent - 0.50) / (16 / 100)));
             blue = 255;
-        }else if(sliderPercent < 0.83){
+        } else if (sliderPercent < 0.83) {
             red = Math.round(255 * (sliderPercent - 0.66) / (17 / 100));
             blue = 255;
-        } else{
+        } else {
             red = 255;
             blue = Math.round(255 * (1 - (sliderPercent - 0.83) / (17 / 100)));
         }
@@ -203,7 +202,7 @@ function updateSlider(mouse){
         baseGreen = green;
         baseBlue = blue;
 
-        
+
 
         //Apply the resulting hex color to the main color picker background
         baseColor.style.background = getHexString(red, green, blue);
@@ -212,24 +211,24 @@ function updateSlider(mouse){
 };
 
 
-function updatePointer(mouse){
-    if(mouseDown){
+function updatePointer(mouse) {
+    if (mouseDown) {
         const gradientRect = twoDimensionalGradient.getBoundingClientRect();
         const baseHex = baseColor.style.background;
         let mouseGradientX = mouse.clientX - gradientRect.x;
         let mouseGradientY = mouse.clientY - gradientRect.y;
 
         //Prevent pointer from being set outside the range of the background, then place pointer
-        if(mouseGradientX < 0){
+        if (mouseGradientX < 0) {
             mouseGradientX = 0;
-        } else if(mouseGradientX > 300){
+        } else if (mouseGradientX > 300) {
             mouseGradientX = 300;
         };
         pointer.style.left = (mouseGradientX - 1) + "px";
 
-        if(mouseGradientY < 0){
+        if (mouseGradientY < 0) {
             mouseGradientY = 0;
-        } else if(mouseGradientY > 300){
+        } else if (mouseGradientY > 300) {
             mouseGradientY = 300;
         };
         pointer.style.top = (mouseGradientY - 1) + "px";
@@ -245,31 +244,27 @@ function updatePointer(mouse){
         let greenDiff = 255 - baseGreen;
         let blueDiff = 255 - baseBlue;
 
-        //console.log(`rgb(${redDiff}, ${greenDiff}, ${blueDiff})`);
-
         let calculatedRed = (baseRed + (redDiff * whitePercent)) * blackPercent;
         let calculatedGreen = (baseGreen + (greenDiff * whitePercent)) * blackPercent;
         let calculatedBlue = (baseBlue + (blueDiff * whitePercent)) * blackPercent;
-        
 
-        console.log(getHexString(calculatedRed, calculatedGreen, calculatedBlue));
         showColor(getHexString(calculatedRed, calculatedGreen, calculatedBlue));
     };
 };
 
-function getHexString(red, green, blue){
+function getHexString(red, green, blue) {
     let hexRed = Math.round(red).toString(16);
     let hexGreen = Math.round(green).toString(16);
     let hexBlue = Math.round(blue).toString(16);
 
     //If hex color is one character, add a 0 to the front
-    if(hexRed.length == 1){
+    if (hexRed.length == 1) {
         hexRed = "0" + hexRed;
     };
-    if(hexGreen.length == 1){
+    if (hexGreen.length == 1) {
         hexGreen = "0" + hexGreen;
     };
-    if(hexBlue.length == 1){
+    if (hexBlue.length == 1) {
         hexBlue = "0" + hexBlue;
     };
 
@@ -278,17 +273,17 @@ function getHexString(red, green, blue){
 
 
 //Listening for clicks/mouse movement on the background or slider
-sliderBackground.addEventListener("mousedown", function(mouse){
+sliderBackground.addEventListener("mousedown", function (mouse) {
     mouseDown = true;
     updateSlider(mouse);
 });
 
-slider.addEventListener("mousedown", function(mouse){
+slider.addEventListener("mousedown", function (mouse) {
     mouseDown = true;
     updateSlider(mouse);
 });
 
-document.addEventListener("mouseup", function(){
+document.addEventListener("mouseup", function () {
     mouseDown = false;
 });
 
@@ -296,12 +291,12 @@ sliderBackground.addEventListener("mousemove", updateSlider);
 slider.addEventListener("mousemove", updateSlider);
 
 //Listening for clicks on the 2D gradient
-twoDimensionalGradient.addEventListener("mousedown", function(mouse){
+twoDimensionalGradient.addEventListener("mousedown", function (mouse) {
     mouseDown = true;
     updatePointer(mouse);
 });
 
-pointer.addEventListener("mousedown", function(mouse){
+pointer.addEventListener("mousedown", function (mouse) {
     mouseDown = true;
     updatePointer(mouse);
 });
