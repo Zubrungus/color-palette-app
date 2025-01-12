@@ -14,6 +14,7 @@
     text-decoration-thickness: 3px;
     text-underline-position: under;
     box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
+    outline: double 5px black;
 }
 
 
@@ -23,6 +24,13 @@ h1{
     color: mediumseagreen;
     font-family: monaco,Consolas,Lucida Console,monospace; 
 }
+
+h2{
+    background-color: black;
+    color: mediumseagreen;
+    font-family: monaco, Consolas, Lucida Console, monospace;
+}
+
 
 
 #bulk {
@@ -35,8 +43,10 @@ h1{
     flex-direction: column;
     width: 40%;
     height: 500px;
-    outline: solid;
+    outline: solid 5px;
     margin: 2%;
+    outline: double 5px;
+    border-radius: 5px;
 }
 
 
@@ -61,6 +71,7 @@ h1{
     width: 100%;
     margin-top: 0%;
     margin-bottom: 7%;
+    
 }
 
 .palette p {
@@ -89,14 +100,28 @@ h1{
 }
 
 .palette-name {
-    position: relative;
     padding: 0;
     margin: 0;
     top: -15px;
     left: 0px;
-    height: 25px;
-    width: 150px;
+    height: 35px;
+    width: 200px;
+    background-color: black;
+    font-size: 15px;
+    color: mediumseagreen;
+    text-align: center;
+    padding-top: 5px;
+    border-radius: 5px;
+    font-family: monaco, Consolas, Lucida Console, monospace;
+    text-decoration: underline;
+    text-decoration-style: double;
+    background: border-box black;
+    margin-bottom: 7px;
+    text-underline-position: under;
+    outline: double black 3px;
 }
+
+
 
 #inner-color-selector {
     position: relative;
@@ -168,5 +193,21 @@ h1{
 
     #inner-color-selector {
         top: 0px;
+    }
+
+    .display-1{
+        display: inline-block;
+        margin: 0px;
+        margin-left: 24px;
+    }
+
+}
+
+@media screen and (max-width: 768px) {
+    
+    .display-1{
+        display: inline-block;
+        margin: 0px;
+        margin-left: 24px;
     }
 }
