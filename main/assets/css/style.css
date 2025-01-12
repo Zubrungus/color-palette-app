@@ -1,5 +1,25 @@
-h1 {
+
+.display-1{    
+    font-size: 55px;
+    font-weight: 300;
+    line-height: 1.2;
+    background-color: black;
+    margin-left: 350px;
+    margin-right: 350px;
+    border-radius: 10px;
+    margin-top: 10px;
+    padding-bottom: 10px;
+    text-decoration: underline;
+    text-decoration-style: double;
+    text-decoration-thickness: 3px;
+    text-underline-position: under;
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
+}
+
+
+h1{
     text-align: center;
+    color: white;
 }
 
 #bulk {
