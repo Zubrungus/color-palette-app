@@ -6,7 +6,7 @@ const twoDimensionalGradient = document.querySelector(".gradient2");
 const pointerEl = document.querySelector("#pointer");
 let sliderMouseDown = false;
 let pointerMouseDown = false;
-let baseRed = 0;
+let baseRed = 255;
 let baseGreen = 0;
 let baseBlue = 0;
 let pointerPosX = 0;
@@ -75,7 +75,7 @@ function sliderCalc(mousePosInSlider){
 
     //Apply the resulting hex color to the main color picker background
     baseColor.style.background = getHexString(red, green, blue);
-}
+};
 
 
 
@@ -128,7 +128,7 @@ function colorCalc(pointerX, pointerY){
     hexValue = getHexString(calculatedRed, calculatedGreen, calculatedBlue);
     showColor(hexValue);
     return;
-}
+};
 
 function getHexString(red, green, blue) {
     let hexRed = Math.round(red).toString(16);
@@ -147,23 +147,33 @@ function getHexString(red, green, blue) {
     };
 
     return `#${hexRed}${hexGreen}${hexBlue}`;
-}
+};
 
 function colorInit(){
     let slider = getSlider();
     let pointer = getPointer();
 
-    if (slider !== null && pointer !== null) {
-        pointerPosX = pointer.x;
-        pointerPosY = pointer.y;
+    if(!slider){
+        slider = 0;
+    };
 
-        sliderEl.style.top = slider + "px";
-        sliderCalc(slider);
+    if(!pointer){
+        pointer = {
+            x: 0,
+            y: 0
+        }
+    };
 
-        pointerEl.style.left = (pointerPosX - 1) + "px";
-        pointerEl.style.top = (pointerPosY - 1) + "px";
-        colorCalc(pointerPosX, pointerPosY);
-    }
+
+    pointerPosX = pointer.x;
+    pointerPosY = pointer.y;
+
+    sliderEl.style.top = slider + "px";
+    sliderCalc(slider);
+
+    pointerEl.style.left = (pointerPosX - 1) + "px";
+    pointerEl.style.top = (pointerPosY - 1) + "px";
+    colorCalc(pointerPosX, pointerPosY);
 };
 
 //Listening for clicks/mouse movement on the background or slider

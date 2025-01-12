@@ -31,8 +31,7 @@ function StoreLastColor(hex) {
 
 function InitializeColors() {
     const lastColor = localStorage.getItem('lastColor');
-
-    if (lastColor !== null) {
+    if (lastColor) {
         RenderColors(lastColor);
     }
 }
