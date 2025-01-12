@@ -1,4 +1,4 @@
-const userSelect = document.querySelector('#user-select');
+//const userSelect = document.querySelector('#user-select');
 
 
 function CalculateTriadic(hex) {

@@ -28,14 +28,14 @@ function InitializeColors() {
 
     if (lastColor !== null || lastColor !== "") {
         RenderColors(lastColor);
-        userSelect.value = lastColor;
+        //userSelect.value = lastColor;
     }
 }
 
 function storePointer(pointerX, pointerY){
     localStorage.setItem('pointer', JSON.stringify({
-        x: pointerX,
-        y: pointerY
+        x: parseInt(pointerX),
+        y: parseInt(pointerY)
     }));
     return;
 }
@@ -43,6 +43,15 @@ function storePointer(pointerX, pointerY){
 function getPointer(){
     const pointer = JSON.parse(localStorage.getItem('pointer'));
     return pointer;
+}
+
+function storeSlider(slider){
+    localStorage.setItem('slider', parseInt(slider));
+}
+
+function getSlider(){
+    slider = localStorage.getItem('slider');
+    return slider;
 }
 
 // event listeners
