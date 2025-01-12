@@ -77,10 +77,6 @@ h1{
     width: 150px;
 }
 
-#base-color{
-    background: #AA00FF;
-}
-
 #inner-color-selector{
     position: relative;
     left: 10px;
@@ -91,6 +87,16 @@ h1{
     width: 300px;
     height:300px;
     position: absolute;
+}
+
+#pointer{
+    position: absolute;
+    height: 3px;
+    width: 3px;
+    /*background: rgba(0, 0, 0, 1);*/
+    outline: 2px solid rgba(0, 0, 0, 0.7);
+    border-radius: 3px;
+    z-index: 2;
 }
 
 #slider-background{
