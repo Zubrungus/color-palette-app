@@ -177,6 +177,11 @@ document.addEventListener("mouseup", function () {
     pointerMouseDown = false;
 });
 
+document.addEventListener("dragend", function () {
+    sliderMouseDown = false;
+    pointerMouseDown = false;
+});
+
 sliderBackground.addEventListener("mousemove", updateSlider);
 sliderEl.addEventListener("mousemove", updateSlider);
 
