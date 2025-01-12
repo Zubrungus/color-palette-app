@@ -32,6 +32,19 @@ function InitializeColors() {
     }
 }
 
+function storePointer(pointerX, pointerY){
+    localStorage.setItem('pointer', JSON.stringify({
+        x: pointerX,
+        y: pointerY
+    }));
+    return;
+}
+
+function getPointer(){
+    const pointer = JSON.parse(localStorage.getItem('pointer'));
+    return pointer;
+}
+
 // event listeners
 complimentSave.addEventListener('click', function (event) {
     const palette = {
