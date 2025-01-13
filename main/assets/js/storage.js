@@ -7,6 +7,7 @@ const monochromeSave = document.querySelector("#monochrome-save");
 const showSaved = document.querySelector("#show-saved-button");
 const closeSaved = document.querySelector("#close-saved-button");
 const savedPaletteBody = document.querySelector("#saved-palette-body");
+const closeExplain = document.querySelector("#close-explain-button");
 
 //modal
 function GetSavedPalettes() {
@@ -102,6 +103,16 @@ showSaved.addEventListener('click', UpdateSavedModal);
 closeSaved.addEventListener('click', function (event) {
     // clear to prevent duplicates when showing the saved modal again
     savedPaletteBody.innerHTML = '';
+
+    if(document.activeElement) {
+        document.activeElement.blur();
+    }
+});
+
+closeExplain.addEventListener('click', function (event) {
+    if(document.activeElement) {
+        document.activeElement.blur();
+    }
 });
 
 InitializeColors();
