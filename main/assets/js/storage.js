@@ -69,6 +69,18 @@ function UpdateSavedModal() {
     });
 }
 
+//tooltip
+function showComplimentTooltip() {
+const tooltip = document.querySelector('#compliment-tooltip');
+
+if (tooltip.style.display === "none") {
+  tooltip.style.display = "block";
+}
+else{
+tooltip.style.display  = "none";
+};
+};
+
 // event listeners
 complimentSave.addEventListener('click', function (event) {
     const palette = {
@@ -77,6 +89,8 @@ complimentSave.addEventListener('click', function (event) {
     }
 
     SaveNewPalette(palette);
+    showComplimentTooltip();
+
 });
 
 triadicSave.addEventListener('click', function (event) {
@@ -86,6 +100,7 @@ triadicSave.addEventListener('click', function (event) {
     }
 
     SaveNewPalette(palette);
+  
 });
 
 monochromeSave.addEventListener('click', function (event) {
@@ -95,6 +110,7 @@ monochromeSave.addEventListener('click', function (event) {
     }
 
     SaveNewPalette(palette);
+    
 });
 
 showSaved.addEventListener('click', UpdateSavedModal);
