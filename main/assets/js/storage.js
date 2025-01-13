@@ -19,24 +19,24 @@ function GetSavedPalettes() {
     }
 
     return savedPalettes;
-}
+};
 
 function SaveNewPalette(palette) {
     const allPalettes = GetSavedPalettes();
     allPalettes.push(palette);
     localStorage.setItem('palettes', JSON.stringify(allPalettes));
-}
+};
 
 function StoreLastColor(hex) {
     localStorage.setItem('lastColor', hex);
-}
+};
 
 function InitializeColors() {
     const lastColor = localStorage.getItem('lastColor');
     if (lastColor) {
         RenderColors(lastColor);
     }
-}
+};
 
 function storePointer(pointerX, pointerY){
     localStorage.setItem('pointer', JSON.stringify({
@@ -44,21 +44,21 @@ function storePointer(pointerX, pointerY){
         y: pointerY
     }));
     return;
-}
+};
 
 function getPointer(){
     const pointer = JSON.parse(localStorage.getItem('pointer'));
     return pointer;
-}
+};
 
 function storeSlider(slider){
     localStorage.setItem('slider', parseInt(slider));
-}
+};
 
 function getSlider(){
     slider = localStorage.getItem('slider');
     return slider;
-}
+};
 
 function UpdateSavedModal() {
     const savedPalettes = GetSavedPalettes();
@@ -69,31 +69,56 @@ function UpdateSavedModal() {
         messageEl.textContent = message;
         savedPaletteBody.appendChild(messageEl);
     });
-}
-
-//tooltip
-function showComplimentTooltip() {
-const tooltip = document.querySelector('#compliment-tooltip');
-
-if (tooltip.style.display === "none") {
-  tooltip.style.display = "block";
-}
-else{
-tooltip.style.display  = "none";
 };
+
+
+//tooltips
+function complimentTooltipFun () {
+  const complimentTooltip = document.querySelector("#compliment-tooltip");
+  complimentTooltip.style.display = "none";
+
+  if (complimentTooltip.style.display === "none") {
+      complimentTooltip.style.display = "block";
+  }
+  else{
+    complimentTooltip.style.display  = "none";
+  }
+};
+
+function triadTooltipFun () {
+  const triadTooltip = document.querySelector("#triad-tooltip");
+  triadTooltip.style.display = "none";
+
+  if (triadTooltip.style.display === "none") {
+      triadTooltip.style.display = "block";
+  }
+  else{
+    triadTooltip.style.display  = "none";
+  }
+};
+
+function monoTooltipFun () {
+  const monoTooltip = document.querySelector("#mono-tooltip");
+  monoTooltip.style.display = "none";
+
+  if (monoTooltip.style.display === "none") {
+      monoTooltip.style.display = "block";
+  }
+  else{
+    monoTooltip.style.display  = "none";
+  }
 };
 
 // event listeners
 complimentSave.addEventListener('click', function (event) {
-    const palette = {
-        name: "Complimentary",
-        colors: CalculateComplimentary(hexValue)
-    }
-
-    SaveNewPalette(palette);
-    showComplimentTooltip();
-
+  const palette = {
+    name: "Complimentary",
+    colors: CalculateComplimentary(hexValue)
+  }
+  SaveNewPalette(palette);
+  complimentTooltipFun();
 });
+
 
 triadicSave.addEventListener('click', function (event) {
     const palette = {
@@ -102,7 +127,7 @@ triadicSave.addEventListener('click', function (event) {
     }
 
     SaveNewPalette(palette);
-  
+    triadTooltipFun();
 });
 
 monochromeSave.addEventListener('click', function (event) {
@@ -112,7 +137,7 @@ monochromeSave.addEventListener('click', function (event) {
     }
 
     SaveNewPalette(palette);
-    
+    monoTooltipFun();
 });
 
 showSaved.addEventListener('click', UpdateSavedModal);
