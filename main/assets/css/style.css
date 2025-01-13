@@ -20,7 +20,10 @@ body {
     outline: darkseagreen outset 5px;
 }
 
-
+header{
+    display: flex;
+    justify-content: center;
+}
 
 h1{
     text-align: center;
@@ -40,7 +43,7 @@ h2{
     text-decoration-style: double;
     text-underline-position: under;
     padding-bottom: 10px;
-    width: 50%;
+    width: 70%;
     text-align: center;
     outline: darkseagreen 5px;
     outline-style: outset;
@@ -59,15 +62,20 @@ p {
 #color-selector {
     display: flex;
     flex-direction: column;
-    width: 40%;
+    width: 430px;
     height: 500px;
     margin: 2%;
     
 }
 
+#selector-top{
+    display: flex;
+    justify-content: center;
+}
 
 #all-palettes {
     display: flex;
+    flex-grow: 1;
     width: 60%;
     flex-direction: column;
     margin: 2%;
@@ -140,7 +148,7 @@ p {
 
 #inner-color-selector {
     position: relative;
-    left: 10px;
+    left: 30px;
     top: 30px;
 }
 
