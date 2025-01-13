@@ -147,6 +147,9 @@ p {
     background: border-box black;
     margin-bottom: 7px;
     outline: outset darkseagreen;
+    text-decoration: underline;
+    text-decoration-style: double;
+    text-underline-position: under;
 }
 
 
@@ -197,44 +200,12 @@ p {
     background: linear-gradient(to bottom, #00000000 0%, #000000FF 100%);
 }
 
-#compliment-save {
-    color: mediumseagreen;
-    background-color: black;
-    outline: double;
-    outline-color: black;
-    border-color: white;
-    font-family: monaco, Consolas, Lucida Console, monospace;
-    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
-}
-
-#triadic-save {
-    color: mediumseagreen;
-    background-color: black;
-    outline: double;
-    outline-color: black;
-    border-color: white;
-    font-family: monaco, Consolas, Lucida Console, monospace;
-    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
-}
-
-#monochrome-save {
-    color: mediumseagreen;
-    background-color: black;
-    outline: double;
-    outline-color: black;
-    border-color: white;
-    font-family: monaco, Consolas, Lucida Console, monospace;
-    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
-}
-
 .modal-buttons{
     display: flex;
     flex-direction: row;
     justify-content: space-around;
     width: 100%;
 }
-
-
 
 button.btn.btn-primary {
     color: mediumseagreen;
