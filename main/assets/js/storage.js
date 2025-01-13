@@ -79,11 +79,16 @@ function complimentTooltipFun () {
 
   if (complimentTooltip.style.display === "none") {
       complimentTooltip.style.display = "block";
+      setTimeout(() => {
+        complimentTooltip.style.display = "none";
+      }, 2000);
   }
   else{
     complimentTooltip.style.display  = "none";
-  }
-};
+    }
+  };
+
+  
 
 function triadTooltipFun () {
   const triadTooltip = document.querySelector("#triad-tooltip");
@@ -91,6 +96,9 @@ function triadTooltipFun () {
 
   if (triadTooltip.style.display === "none") {
       triadTooltip.style.display = "block";
+      setTimeout(() => {
+        triadTooltip.style.display = "none";
+      }, 2000);
   }
   else{
     triadTooltip.style.display  = "none";
@@ -103,6 +111,9 @@ function monoTooltipFun () {
 
   if (monoTooltip.style.display === "none") {
       monoTooltip.style.display = "block";
+      setTimeout(() => {
+        monoTooltip.style.display = "none";
+      }, 2000);
   }
   else{
     monoTooltip.style.display  = "none";
@@ -116,7 +127,7 @@ complimentSave.addEventListener('click', function (event) {
     colors: CalculateComplimentary(hexValue)
   }
   SaveNewPalette(palette);
-  complimentTooltipFun();
+  complimentTooltipFun(2000);
 });
 
 
