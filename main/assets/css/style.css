@@ -102,7 +102,7 @@ p {
     height: 110px;
     width: 100%;
     margin-top: 0%;
-    margin-bottom: 7%;
+    margin-bottom: 5%;
     
 }
 
@@ -282,15 +282,15 @@ button.btn.btn-primary {
 @media screen and (max-width: 558px) {
     
     #triadic-save {
-        font-size: 5px;
+        font-size: 9px;
     }
 
     #compliment-save {
-        font-size: 5px;
+        font-size: 9px;
     }
 
     #monochrome-save {
-        font-size: 5px;
+        font-size: 9px;
     }
 
 }
