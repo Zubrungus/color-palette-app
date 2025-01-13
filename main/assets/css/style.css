@@ -9,15 +9,15 @@ body {
     background-color: black;
     margin-left: 350px;
     margin-right: 350px;
-    border-radius: 10px;
+    border-radius: 0px;
     margin-top: 10px;
     padding-bottom: 10px;
     text-decoration: underline;
     text-decoration-style: double;
     text-decoration-thickness: 3px;
     text-underline-position: under;
-    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
-    outline: double 5px black;
+    outline-style: outset;
+    outline: darkseagreen outset 5px;
 }
 
 
@@ -40,7 +40,10 @@ h2{
     text-decoration-style: double;
     text-underline-position: under;
     padding-bottom: 10px;
-    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
+    width: 50%;
+    text-align: center;
+    outline: darkseagreen 5px;
+    outline-style: outset;
 }
 
 p {
@@ -58,10 +61,8 @@ p {
     flex-direction: column;
     width: 40%;
     height: 500px;
-    outline: solid 5px;
     margin: 2%;
-    outline: double 5px;
-    border-radius: 5px;
+    
 }
 
 
@@ -126,15 +127,13 @@ p {
     color: mediumseagreen;
     text-align: center;
     padding-top: 5px;
-    border-radius: 5px;
     font-family: monaco, Consolas, Lucida Console, monospace;
     text-decoration: underline;
     text-decoration-style: double;
     background: border-box black;
     margin-bottom: 7px;
     text-underline-position: under;
-    outline: double black 3px;
-    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
+    outline: outset darkseagreen;
 }
 
 
@@ -227,6 +226,14 @@ p {
     font-family: monaco, Consolas, Lucida Console, monospace;
     box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
 }
+
+.modal-buttons{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    width: 100%;
+}
+
 
 
 button.btn.btn-primary {
