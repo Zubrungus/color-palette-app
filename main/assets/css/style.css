@@ -144,12 +144,12 @@ p {
     text-align: center;
     padding-top: 5px;
     font-family: monaco, Consolas, Lucida Console, monospace;
-    text-decoration: underline;
-    text-decoration-style: double;
     background: border-box black;
     margin-bottom: 7px;
-    text-underline-position: under;
     outline: outset darkseagreen;
+    text-decoration: underline;
+    text-decoration-style: double;
+    text-underline-position: under;
 }
 
 
@@ -200,45 +200,6 @@ p {
     background: linear-gradient(to bottom, #00000000 0%, #000000FF 100%);
 }
 
-#compliment-save {
-    color: mediumseagreen;
-    background-color: black;
-    outline: double;
-    outline-color: black;
-    border-color: white;
-    text-decoration: underline;
-    text-decoration-style: double;
-    text-underline-position: under;
-    font-family: monaco, Consolas, Lucida Console, monospace;
-    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
-}
-
-#triadic-save {
-    color: mediumseagreen;
-    background-color: black;
-    outline: double;
-    outline-color: black;
-    border-color: white;
-    text-decoration: underline;
-    text-decoration-style: double;
-    text-underline-position: under;
-    font-family: monaco, Consolas, Lucida Console, monospace;
-    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
-}
-
-#monochrome-save {
-    color: mediumseagreen;
-    background-color: black;
-    outline: double;
-    outline-color: black;
-    border-color: white;
-    text-decoration: underline;
-    text-decoration-style: double;
-    text-underline-position: under;
-    font-family: monaco, Consolas, Lucida Console, monospace;
-    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
-}
-
 .modal-buttons{
     display: flex;
     flex-direction: row;
@@ -265,9 +226,6 @@ button.btn.btn-primary {
     outline: double;
     outline-color: black;
     border-color: white;
-    text-decoration: underline;
-    text-decoration-style: double;
-    text-underline-position: under;
     font-family: monaco, Consolas, Lucida Console, monospace;
     box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
 }
@@ -332,4 +290,20 @@ button.btn.btn-primary {
     #monochrome-save {
         font-size: 13px;
     }
+}
+
+@media screen and (max-width: 558px) {
+    
+    #triadic-save {
+        font-size: 5px;
+    }
+
+    #compliment-save {
+        font-size: 5px;
+    }
+
+    #monochrome-save {
+        font-size: 5px;
+    }
+
 }

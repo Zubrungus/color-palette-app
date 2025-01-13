@@ -6,6 +6,7 @@ const monochromeSave = document.querySelector("#monochrome-save");
 // modal elements
 const showSaved = document.querySelector("#show-saved-button");
 const closeSaved = document.querySelector("#close-saved-button");
+const clearSaved = document.querySelector("#clear-saved-button");
 const savedPaletteBody = document.querySelector("#saved-palette-body");
 const closeExplain = document.querySelector("#close-explain-button");
 
@@ -115,6 +116,11 @@ monochromeSave.addEventListener('click', function (event) {
 });
 
 showSaved.addEventListener('click', UpdateSavedModal);
+
+clearSaved.addEventListener('click', function (event) {
+    localStorage.removeItem('palettes');
+    savedPaletteBody.innerHTML = '';
+});
 
 closeSaved.addEventListener('click', function (event) {
     // clear to prevent duplicates when showing the saved modal again
