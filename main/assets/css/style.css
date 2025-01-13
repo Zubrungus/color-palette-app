@@ -43,7 +43,7 @@ h2{
     text-decoration-style: double;
     text-underline-position: under;
     padding-bottom: 10px;
-    width: 70%;
+    width: 75%;
     text-align: center;
     outline: darkseagreen 5px;
     outline-style: outset;
@@ -65,7 +65,7 @@ p {
     width: 430px;
     height: 500px;
     margin: 2%;
-    
+    flex-wrap: 1;
 }
 
 #selector-top{
@@ -73,9 +73,17 @@ p {
     justify-content: center;
 }
 
+#inner-color-selector {
+    justify-self: start;
+    align-self: center;
+    position: relative;
+    width: 360px;
+    height: 300px;
+}
+
 #all-palettes {
     display: flex;
-    flex-grow: 1;
+    flex-grow: 3;
     width: 60%;
     flex-direction: column;
     margin: 2%;
@@ -126,7 +134,7 @@ p {
 .palette-name {
     padding: 0;
     margin: 0;
-    top: -15px;
+    top: 0px;
     left: 0px;
     height: 35px;
     width: 200px;
@@ -146,11 +154,7 @@ p {
 
 
 
-#inner-color-selector {
-    position: relative;
-    left: 30px;
-    top: 30px;
-}
+
 
 .gradients,
 #base-color {
