@@ -18,127 +18,128 @@
 
   <main>
 
-    <div id="bulk">
-      <div id="color-selector">
-        <div id="selector-top">
-          <h2>//Pick a color!:</h2>
-          <!---<input type="color" id="user-select">--->
-        </div>
-
-        <div id="inner-color-selector">
-          <div id="base-color" style="background: #AA00FF;">
-            <div class="gradients gradient1"></div>
-            <div class="gradients gradient2"></div>
-          </div>
-          <div id="pointer"></div>
-
-          <div id="slider-background"></div>
-          <div id="slider"></div>
-
-        </div>
+  <div id="bulk">
+    <div id="color-selector">
+      <div id="selector-top">
+        <h2>//Pick a color!:</h2>
+        <!---<input type="color" id="user-select">--->
       </div>
 
-      <div id="all-palettes">
-
-        <p class="palette-name h3">//Complimentary:</p>
-        <div class="palette" id="compliment">
-          <div class="initial-color">
-            <p>Initial color</p>
-          </div>
-          <div class="individual-color" id="compliment1">
-            <p>color</p>
-          </div>
-          <button class="save-button btn btn-primary" id="compliment-save">//Save:</button>
+      <div id="inner-color-selector">
+        <div id="base-color" style="background: #AA00FF;">
+          <div class="gradients gradient1"></div>
+          <div class="gradients gradient2"></div>
         </div>
+        <div id="pointer"></div>
 
-        <p class="palette-name h3">//Triadic:</p>
-        <div class="palette" id="triadic">
-          <div class="initial-color">
-            <p>Initial color</p>
-          </div>
-          <div class="individual-color" id="triadic1">
-            <p>color</p>
-          </div>
-          <div class="individual-color" id="triadic2">
-            <p>color</p>
-          </div>
-          <button class="save-button btn btn-primary" id="triadic-save">//Save:</button>
-        </div>
+        <div id="slider-background"></div>
+        <div id="slider"></div>
 
-
-        <p class="palette-name h3">//Monochromatic:</p>
-        <div class="palette" id="monochrome">
-          <div class="initial-color">
-            <p>Initial color</p>
-          </div>
-          <div class="individual-color" id="monochrome1">
-            <p>color</p>
-          </div>
-          <div class="individual-color" id="monochrome2">
-            <p>color</p>
-          </div>
-          <button class="save-button btn btn-primary" id="monochrome-save">//Save:</button>
-        </div>
-
-
-      </div>
-
-    </div>
-
-<div class="modal-buttons">
-  
-  <!-- Button trigger explanationModal -->
-  <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#explanationModal">
-    //Explain Hex:
-  </button>
-  
-  <!-- Button trigger modal -->
-<button type="button" class="btn btn-primary" id="show-saved-button" data-toggle="modal" data-target='#saved-color-palette'>
-//Saved Color Palettes:
-</button>
-
-</div>
-
-<!-- Modal -->
-<div class="modal fade" id="saved-color-palette" tabindex="-1" role="dialog" data-backdrop="static">
-      <div class="modal-dialog modal-dialog-scrollable" role="document">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title" id="saved-color-palette">Saved Color Palettes</h5>
-          </div>
-          <div class="modal-body" id="saved-palette-body">
-          </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" id="close-saved-button" data-dismiss="modal">Close</button>
-          </div>
-        </div>
       </div>
     </div>
 
-    <!--Bootstrap modal-->
-    <div class="modal fade" id="explanationModal" tabindex="-1" role="dialog">
-          <div class="modal-dialog" role="document">
-            <div class="modal-content">
-              <div class="modal-header">
-                <h5 class="modal-title">Hex Explained</h5>
-              </div>
-              <div class="modal-body">
-                <p>#<span style="color:red">RR</span><span style="color:green">GG</span><span style="color:blue">BB</span>
-                </p>
-                <p>
-                  Hex colors allow designers and developers to agree on the exact color they're
-                  referring to. RR (red), GG (green) and BB (blue) are hexadecimal values between 00
-                  and ff (same as decimal 0-255). For example, #ff0000 is displayed as red, because
-                  red is set to its highest value (ff), and the other two (green and blue) are set to
-                  00.
-                </p>
-              </div>
-              <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" id="close-explain-button" data-dismiss="modal">Close</button>
-              </div>
-            </div>
-          </div>
+    <div id="all-palettes">
+
+      <p class="palette-name h3">//Complimentary:</p>
+      <div class="palette" id="compliment">
+        <div class="initial-color">
+          <p>Initial color</p>
         </div>
+        <div class="individual-color" id="compliment1">
+          <p>color</p>
+        </div>
+        <button class="save-button btn btn-primary" id="compliment-save">//Save:</button>
+      </div>
+
+      <p class="palette-name h3">//Triadic:</p>
+      <div class="palette" id="triadic">
+        <div class="initial-color">
+          <p>Initial color</p>
+        </div>
+        <div class="individual-color" id="triadic1">
+          <p>color</p>
+        </div>
+        <div class="individual-color" id="triadic2">
+          <p>color</p>
+        </div>
+        <button class="save-button btn btn-primary" id="triadic-save">//Save:</button>
+      </div>
+
+
+      <p class="palette-name h3">//Monochromatic:</p>
+      <div class="palette" id="monochrome">
+        <div class="initial-color">
+          <p>Initial color</p>
+        </div>
+        <div class="individual-color" id="monochrome1">
+          <p>color</p>
+        </div>
+        <div class="individual-color" id="monochrome2">
+          <p>color</p>
+        </div>
+        <button class="save-button btn btn-primary" id="monochrome-save">//Save:</button>
+      </div>
+
+
+    </div>
+
+  </div>
+
+  <div class="modal-buttons">
+    
+    <!-- Button trigger explanationModal -->
+    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#explanationModal">
+      //Explain Hex:
+    </button>
+    
+    <!-- Button trigger saved-color-palette modal -->
+    <button type="button" class="btn btn-primary" id="show-saved-button" data-toggle="modal" data-target='#saved-color-palette'>
+    //Saved Color Palettes:
+    </button>
+
+  </div>
+
+  <!-- saved-color-palette Modal -->
+  <div class="modal fade" id="saved-color-palette" tabindex="-1" role="dialog" data-backdrop="static">
+    <div class="modal-dialog modal-dialog-scrollable" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="saved-color-palette">Saved Color Palettes</h5>
+        </div>
+        <div class="modal-body" id="saved-palette-body">
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-primary" id="clear-saved-button">Clear Saved Palettes</button>
+          <button type="button" class="btn btn-primary" id="close-saved-button" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- explanationModal -->
+  <div class="modal fade" id="explanationModal" tabindex="-1" role="dialog" data-backdrop="static">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Hex Explained</h5>
+        </div>
+        <div class="modal-body">
+          <p>#<span style="color:red">RR</span><span style="color:green">GG</span><span style="color:blue">BB</span>
+          </p>
+          <p>
+            Hex colors allow designers and developers to agree on the exact color they're
+            referring to. RR (red), GG (green) and BB (blue) are hexadecimal values between 00
+            and ff (same as decimal 0-255). For example, #ff0000 is displayed as red, because
+            red is set to its highest value (ff), and the other two (green and blue) are set to
+            00.
+          </p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-primary" id="close-explain-button" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
 
   </main>
 
