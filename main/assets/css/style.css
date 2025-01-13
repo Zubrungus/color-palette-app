@@ -1,3 +1,6 @@
+body {
+    background-color: lightgray;
+}
 
 .display-1{    
     font-size: 50px;
@@ -23,15 +26,27 @@ h1{
     text-align: center;
     color: mediumseagreen;
     font-family: monaco,Consolas,Lucida Console,monospace; 
+    text-decoration: underline;
+    text-decoration-style: double;
+    text-underline-position: under;
+    
 }
 
 h2{
     background-color: black;
     color: mediumseagreen;
     font-family: monaco, Consolas, Lucida Console, monospace;
+    text-decoration: underline;
+    text-decoration-style: double;
+    text-underline-position: under;
+    padding-bottom: 10px;
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
 }
 
-
+p {
+    font-family: monaco, Consolas, Lucida Console, monospace;;
+    color: black;    
+}
 
 #bulk {
     display: flex;
@@ -119,6 +134,7 @@ h2{
     margin-bottom: 7px;
     text-underline-position: under;
     outline: double black 3px;
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
 }
 
 
@@ -173,6 +189,71 @@ h2{
     background: linear-gradient(to bottom, #00000000 0%, #000000FF 100%);
 }
 
+#compliment-save {
+    color: mediumseagreen;
+    background-color: black;
+    outline: double;
+    outline-color: black;
+    border-color: white;
+    text-decoration: underline;
+    text-decoration-style: double;
+    text-underline-position: under;
+    font-family: monaco, Consolas, Lucida Console, monospace;
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
+}
+
+#triadic-save {
+    color: mediumseagreen;
+    background-color: black;
+    outline: double;
+    outline-color: black;
+    border-color: white;
+    text-decoration: underline;
+    text-decoration-style: double;
+    text-underline-position: under;
+    font-family: monaco, Consolas, Lucida Console, monospace;
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
+}
+
+#monochrome-save {
+    color: mediumseagreen;
+    background-color: black;
+    outline: double;
+    outline-color: black;
+    border-color: white;
+    text-decoration: underline;
+    text-decoration-style: double;
+    text-underline-position: under;
+    font-family: monaco, Consolas, Lucida Console, monospace;
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
+}
+
+
+button.btn.btn-primary {
+    color: mediumseagreen;
+    background-color: black;
+    outline: double;
+    outline-color: black;
+    border-color: white;
+    text-decoration: underline;
+    text-decoration-style: double;
+    text-underline-position: under;
+    font-family: monaco, Consolas, Lucida Console, monospace;
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
+}
+
+#explanationModal {
+    outline: double;
+    outline-color: black;
+    border-color: white;
+}
+
+#saved-color-palettes {
+    outline: double;
+    outline-color: black;
+    border-color: white;
+}
+
 @media screen and (max-width: 992px) {
     #bulk {
         flex-direction: column;
@@ -209,5 +290,17 @@ h2{
         display: inline-block;
         margin: 0px;
         margin-left: 24px;
+    }
+
+    #triadic-save {
+        font-size: 13px;
+    }
+
+    #compliment-save {
+        font-size: 13px;
+    }
+
+    #monochrome-save {
+        font-size: 13px;
     }
 }
