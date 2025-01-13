@@ -11,7 +11,6 @@ let baseGreen = 0;
 let baseBlue = 0;
 let pointerPosX = 0;
 let pointerPosY = 0;
-
 let hexValue = "";
 
 function updateSlider(mouse) {
