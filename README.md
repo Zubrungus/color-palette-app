@@ -13,15 +13,15 @@ Link to the deployed page [here](https://zubrungus.github.io/color-palette-app/m
 
 ## Usage:
 * Use color selector to choose color and recieve hexcode.
-(Insert Image)
+![Color picker is dynamic and displays hex code of chosen color](main/assets/images/pick-a-color.png)
 * Choose between complementary, triadic, or monochromatic color palette.
-(Insert Image)
+![Displays palettes calculated from user selected color](main/assets/images/color-palettes.png)
 * Save color scheme to modal via the save button.
-(Insert Image)
+![Tooltip stating "Saved!" displays once save button is clicked](main/assets/images/save-palette.png)
 * Access saved color scheme modal through the modal button.
-(Insert Image)
+![Modal displays saved palette name and hex codes](main/assets/images/saved-palettes-modal.png)
 * Access hex color description modal through the modal button.
-(Insert Image)
+![Modal displays explanation of hex codes](main/assets/images/explain-hex-modal.png)
 
 ## Contributors:
 * 'conversions.js' uses logic from James L. Milner's blog post [Converting RGB, Hex and HSL Colors with JavaScript & TypeScript](https://www.jameslmilner.com/posts/converting-rgb-hex-hsl-colors/).
