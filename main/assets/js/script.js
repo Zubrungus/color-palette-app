@@ -1,6 +1,3 @@
-const userSelect = document.querySelector('#user-select');
-
-
 function CalculateTriadic(hex) {
     /*
     Color 1: #RRBBGG (input)
@@ -110,7 +107,7 @@ function RenderColors(hexIn) {
     });
 
     const initialColorsp = document.querySelectorAll('.initial-color p');
-    
+
     initialColorsp.forEach((pelement) => {
         pelement.textContent = hexIn;
     });
@@ -127,22 +124,7 @@ function RenderColors(hexIn) {
     setColor("monochrome2", monochromatic[2]);
 }
 
-function showColor() {
-    RenderColors(userSelect.value);
-    StoreLastColor(userSelect.value);
+function showColor(receivedColor) {
+    RenderColors(receivedColor);
+    StoreLastColor(receivedColor);
 }
-
-userSelect.addEventListener("input", showColor, false);
-
-//Adding open close functionality to save palette button.
-const dialog = document.querySelector("dialog");
-const showButton = document.querySelector("dialog + button");
-const closeButton = document.querySelector("dialog button");
-
-showButton.addEventListener("click", () => {
-    dialog.showModal();
-});
-
-    closeButton.addEventListener("click", () => {
-        dialog.close()
-    });;

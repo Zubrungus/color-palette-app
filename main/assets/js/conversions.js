@@ -20,7 +20,7 @@ function HexToHSL(hex) {
 
     const max = Math.max(r, g, b);
     const min = Math.min(r, g, b);
-    
+
     let h = (max + min) / 2;
     let s = h;
     let l = h;
@@ -65,8 +65,8 @@ function HSLToHex(hsl) {
 
         // Convert to Hex and prefix with "0" if required
         return Math.round(255 * color)
-        .toString(16)
-        .padStart(2, "0");
+            .toString(16)
+            .padStart(2, "0");
     };
     return `#${f(0)}${f(8)}${f(4)}`;
 }
